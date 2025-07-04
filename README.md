@@ -25,12 +25,4 @@ This project is a **simple yet powerful chatbot application** built using:
 git clone https://github.com/prashantpq/Langchain-OpenSource-LLM.git
 cd Langchain-OpenSource-LLM
 
-```bash
-python -m venv myenv
-source myenv/bin/activate  # Mac/Linux
-# OR
-myenv\Scripts\activate  # Windows
-
-```bash
-pip install -r requirements.txt
 
