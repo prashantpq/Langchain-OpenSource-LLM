@@ -24,18 +24,27 @@ This project is a **simple yet powerful chatbot application** built using:
 ```bash
 git clone https://github.com/prashantpq/Langchain-OpenSource-LLM.git
 cd Langchain-OpenSource-LLM
+```
 
+### 2. Create a virtual environment
+```bash
 python -m venv myenv
 source myenv/bin/activate  # Mac/Linux
 # OR
 myenv\Scripts\activate  # Windows
+```
 
+### 3. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
+### 4. Install and run Ollama
+```bash
 ollama pull llama3.2
+```
 
-ollama serve
-
+### 5. Run the Streamlit app
+```bash
 streamlit run chatbot.py
-
-
+```
