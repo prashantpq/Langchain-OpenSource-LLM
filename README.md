@@ -49,8 +49,13 @@ ollama pull llama3.2
 streamlit run chatbot.py
 ```
 
+---
+
 ## 📸 Output Screenshot
 
-Here is a sample output of the **LangChain Ollama Streamlit chatbot**:
+Here is a sample output of the chatbot running locally:
 
-![Chatbot Output](output image/output.png)
+![Chatbot Output](output_image/output.png)
+
+---
+
