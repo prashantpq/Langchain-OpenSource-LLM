@@ -18,7 +18,7 @@ Conversify is a AI chatbot built using LangGraph and Groq LLM, providing a power
 
 ---
 
-## 🔧 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the repository
 
@@ -55,7 +55,7 @@ streamlit run frontend.py
 
 ---
 ## Architecture diagram
-
+```mermaid
 flowchart TD
     subgraph UI
         A[Streamlit Chat Interface] --> B[User Input]
@@ -90,6 +90,7 @@ flowchart TD
     style Backend fill:#bbf,stroke:#333,stroke-width:2px
     style Tools fill:#bfb,stroke:#333,stroke-width:2px
     style Persistence fill:#ffb,stroke:#333,stroke-width:2px
+
 
 ---
 
