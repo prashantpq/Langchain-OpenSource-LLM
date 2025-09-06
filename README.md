@@ -55,7 +55,7 @@ streamlit run chatbot.py
 
 Here is a sample output of the chatbot running locally:
 
-![Chatbot Output](output_image/Screenshot 2025-09-06 at 15.02.31.png)
+![Chatbot Output](output_image/output.png)
 
 ---
 
