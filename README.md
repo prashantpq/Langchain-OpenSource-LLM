@@ -40,23 +40,65 @@ myenv\Scripts\activate  # Windows
 pip install -r requirements.txt
 ```
 
-### 4. Install and run Ollama
+### 4. Configure environment
 ```bash
-ollama pull llama3.2
+Create a .env file and add your API keys (Groq API key, Alpha Vantage key)
+Ensure .env is added to .gitignore to prevent committing secrets
+touch .env
+
 ```
 
 ### 5. Run the Streamlit app
 ```bash
-streamlit run chatbot.py
+streamlit run frontend.py
 ```
 
 ---
+## Architecture diagram
 
-## 📸 Output Screenshot
+flowchart TD
+    subgraph UI
+        A[Streamlit Chat Interface] --> B[User Input]
+        B --> C[Chat Thread Manager]
+        C --> D[Message History (Session State)]
+    end
 
-Here is a sample output of the chatbot running locally:
+    subgraph Backend
+        D --> E[LangGraph StateGraph]
+        E --> F[Chat Node (Groq LLM)]
+        F --> G[Tool Node]
+        G --> F
+        F --> D
+    end
+
+    subgraph Tools
+        H[Calculator] 
+        I[DuckDuckGo Search]
+        J[Stock Price API]
+        G --> H
+        G --> I
+        G --> J
+    end
+
+    subgraph Persistence
+        K[SQLite Database (.db)]
+        D --> K
+        K --> D
+    end
+
+    style UI fill:#f9f,stroke:#333,stroke-width:2px
+    style Backend fill:#bbf,stroke:#333,stroke-width:2px
+    style Tools fill:#bfb,stroke:#333,stroke-width:2px
+    style Persistence fill:#ffb,stroke:#333,stroke-width:2px
+
+---
+
+## Output Screenshot
+
+Here is a sample output of the chatbot running:
 
 ![Chatbot Output](output_image/output.png)
 
 ---
+
 
