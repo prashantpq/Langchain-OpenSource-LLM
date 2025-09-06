@@ -52,46 +52,6 @@ touch .env
 ```bash
 streamlit run frontend.py
 ```
-
----
-## Architecture diagram
-```mermaid
-flowchart TD
-    subgraph UI
-        A[Streamlit Chat Interface] --> B[User Input]
-        B --> C[Chat Thread Manager]
-        C --> D[Message History (Session State)]
-    end
-
-    subgraph Backend
-        D --> E[LangGraph StateGraph]
-        E --> F[Chat Node (Groq LLM)]
-        F --> G[Tool Node]
-        G --> F
-        F --> D
-    end
-
-    subgraph Tools
-        H[Calculator] 
-        I[DuckDuckGo Search]
-        J[Stock Price API]
-        G --> H
-        G --> I
-        G --> J
-    end
-
-    subgraph Persistence
-        K[SQLite Database (.db)]
-        D --> K
-        K --> D
-    end
-
-    style UI fill:#f9f,stroke:#333,stroke-width:2px
-    style Backend fill:#bbf,stroke:#333,stroke-width:2px
-    style Tools fill:#bfb,stroke:#333,stroke-width:2px
-    style Persistence fill:#ffb,stroke:#333,stroke-width:2px
-
-
 ---
 
 ## Output Screenshot
@@ -101,5 +61,33 @@ Here is a sample output of the chatbot running:
 ![Chatbot Output](output_image/output.png)
 
 ---
+## Architecture diagram
+```mermaid
+flowchart TD
+    User["User"] --> Streamlit["Streamlit Chat Interface"]
+    Streamlit --> ThreadMgr["Chat Thread Manager"]
+    ThreadMgr --> MsgHistory["Message History (Session State)"]
+    
+    MsgHistory --> LangGraph["LangGraph StateGraph"]
+    LangGraph --> ChatNode["Chat Node (Groq LLM)"]
+    
+    ChatNode --> ToolCheck{Does AI need a Tool?}
+    
+    ToolCheck -->|Yes| ToolNode["Tool Node"]
+    ToolCheck -->|No| AIResponse["Use AI Response Directly"]
+    
+    ToolNode --> Calculator["Calculator Tool"]
+    ToolNode --> DuckDuckGo["DuckDuckGo Search Tool"]
+    ToolNode --> StockPrice["Stock Price Tool"]
+    ToolNode --> Merge["Merge Tool Output with AI Response"]
+    
+    AIResponse --> Merge
+    Merge --> MsgHistory
+    MsgHistory --> SQLiteDB["SQLite Database (.db) - Persistent Storage"]
+    
+    SQLiteDB --> MsgHistory
+    MsgHistory --> Streamlit
+    Streamlit --> User
+
 
 
