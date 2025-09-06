@@ -1,6 +1,6 @@
 # Conversify
 
-Conversify is a AI chatbot built using LangGraph and Groq LLM, providing a powerful, interactive interface with tool integration for web search, calculations, and stock prices.
+Conversify is an AI chatbot built using LangGraph and Groq LLM, providing a powerful, interactive interface with tool integration for web search, calculations, and stock prices.
 - LangGraph – manages chat state, graph-based workflow, and conversation threads
 - Groq LLM – runs the deepseek-r1-distill-llama-70b model 
 - Streamlit – interactive web interface
