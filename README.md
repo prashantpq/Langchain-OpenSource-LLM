@@ -1,19 +1,20 @@
-# 🦙 LangChain OpenSource LLM Chatbot with Ollama and Streamlit
+# Conversify
 
-This project is a **simple yet powerful chatbot application** built using:
-
-- 📝 **LangChain** for prompt chaining  
-- 💻 **Ollama** for running open-source local LLM models  
-- 🌐 **Streamlit** for building an interactive web interface
+Conversify is a AI chatbot built using LangGraph and Groq LLM, providing a powerful, interactive interface with tool integration for web search, calculations, and stock prices.
+- LangGraph – manages chat state, graph-based workflow, and conversation threads
+- Groq LLM – runs the deepseek-r1-distill-llama-70b model 
+- Streamlit – interactive web interface
+- Tools – DuckDuckGo search, calculator, stock price fetch
 
 ---
 
-## 🚀 **Features**
+## **Features**
 
-✅ Uses **Ollama's llama3.2 model** as the backend LLM  
-✅ Clean Streamlit UI for easy interaction  
-✅ Modular code structure for future expansions  
-✅ Fully local inference – **no cloud API costs**
+- Multi-threaded chat with conversation history
+- AI can call external tools (calculator, DuckDuckGo, stock price API)
+- Streamed responses for real-time chatting
+- Fully local LLM inference with Groq backend
+- SQLite-based persistent storage for chat history
 
 ---
 
